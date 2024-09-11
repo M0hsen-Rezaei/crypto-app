@@ -25,9 +25,7 @@ a{
 }
 
 .page-name{
-  width: 100%;
   text-align: center;
-  margin-top: 10px;
   font-size: 2.2rem;
 }
 
@@ -81,7 +79,29 @@ a{
 }
 .title p{
   cursor: pointer;
+  font-size: 1.3rem;
 }
+@media (max-width: 767px){
+  .page-name{
+    font-size: 1.5rem;
+  }
+  .title p{
+    font-size: 0.83rem;
+  }
+  .coin-name{
+    max-width: 24vw;
+    overflow: hidden;
+    max-height: 8vh;
+  }
+  .coin-symbol{
+    font-size: 1.1rem !important;
+  }
+  .coin-fullName{
+    font-size: 0.7rem !important;
+  }
+}
+
+
 .active-title{
   background-color: #4a455fbb !important;
   border-radius: 16px;
@@ -198,4 +218,16 @@ a{
   font-weight: bold;
   margin: auto;
   margin-top: 40px;
+}
+
+.logoCrypto{
+  width: 4vw;
+  min-width: 40px;
+  margin-left: 10px;
+}
+
+.container-pageName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

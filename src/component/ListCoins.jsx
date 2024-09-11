@@ -7,10 +7,19 @@ export default function ListCoins({ crypto, toggleFavorite, favorites }) {
 
     const coins =crypto.map((item) => {
         const isFavorite = favorites.includes(item.uuid);
+
+        const ronded = (oldPrice)=>{
+            if(oldPrice.indexOf(".") > 1){
+                return Math.round(oldPrice *100) / 100
+            }else {
+                return Math.round(oldPrice *100000) / 100000
+            }
+        }
+        
         
         return (
-            <a >
             <li key={item.uuid} className="coin">
+                <a href={item.coinrankingUrl}>
             <div className="section1">
                 <p className="coin-number">{item.rank}</p>
                 <img className="coin-logo" src={item.iconUrl} alt="logo" />
@@ -19,11 +28,12 @@ export default function ListCoins({ crypto, toggleFavorite, favorites }) {
                     <span className="coin-fullName">{item.name}</span>
                 </div>
             </div>
-            <div className={item.change>0 ? "green" : "red"}>$ {Math.round(item.price *100000) / 100000}
+                </a>
+            
+            <div className={item.change>0 ? "green" : "red"}>$ {ronded(item.price)}
                 <a className={isFavorite ? "icon-fav heart-red" : "icon-fav"} onClick={() => toggleFavorite(item)}><FontAwesomeIcon icon={faHeart}></FontAwesomeIcon></a>
             </div>
         </li>
-            </a>
         )      
     })
     return (
